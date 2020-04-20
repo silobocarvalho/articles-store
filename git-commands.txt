@@ -3,7 +3,7 @@ git init
 git status
 git add files
 git commit –m “first commit”
-git remote add origin https://github.com/silobocarvalho/questions-and-answers.git
+git remote add origin https://github.com/silobocarvalho/articles-store.git
 git pull origin master
 git push origin master
 
