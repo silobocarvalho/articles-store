@@ -1,0 +1,14 @@
+#Util commands Git
+git init
+git status
+git add files
+git commit –m “message”
+git remote add origin https://github.com/silobocarvalho/questions-and-answers.git
+git pull origin master
+git push origin master
+
+#If you submit node_modules folder by mistake.
+git rm -r --cached node_modules
+git commit -m "Removed node_module folder"
+git push origin master
+

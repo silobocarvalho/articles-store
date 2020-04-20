@@ -1,0 +1,44 @@
+<%- include ('../../partials/header.ejs') %>
+<%- include ('../../partials/navbar-admin.ejs') %>
+
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h3>Users</h3>
+            <a href='/admin/users/create' class="btn btn-success">Create new user</a>
+        </div>
+        <div class="card-body">
+            <table class='table table-bordered'>
+                <tread>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created at</th>
+                        <td>Actions</td>
+                    </tr>
+                </tread>
+                <tbody>
+
+                    <% users.forEach( user => { %>
+                    <tr>
+                        <td><%= user.id %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.createdAt %></td>
+                        <td>
+                            <form action="/admin/users/delete" method="POST" onsubmit="confirmDelete(event, this)">
+                                <input type="hidden" name='id' value='<%= user.id %>'>
+                                <button class='btn btn-danger'>Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include ('../../partials/footer.ejs') %>

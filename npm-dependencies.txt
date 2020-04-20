@@ -1,0 +1,14 @@
+npm install --save ejs
+npm install --save express
+npm install --save body-parser
+npm install --save sequelize
+npm install --save mysql2
+npm install --save slugify
+Tinymce (smart web text editor): https://www.tiny.cloud/get-tiny/self-hosted/
+npm install --save bcryptjs
+npm install --save express-session
+
+Expose local project into Internet:
+https://dashboard.ngrok.com/get-started/tutorials
+-> ./ngrok http 5555
+

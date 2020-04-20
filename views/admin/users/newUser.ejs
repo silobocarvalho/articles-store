@@ -1,0 +1,37 @@
+<%- include ('../../partials/header.ejs') %>
+<%- include ('../../partials/navbar-admin.ejs') %>
+
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h3>Register a new User</h3>
+        </div>
+        <div class="card-body">
+            <form action="/admin/users/save" method="POST">
+                <h3><label for="name" class='badge badge-info'>Name: </label> </h3>
+                <input type="text" class='form-control' name='name' placeholder="Put your name here..."> <br>
+                <h3><label for="email" class='badge badge-info'>Email: </label> </h3>
+                <input type="email" class='form-control' name='email' placeholder="email@mail.com"> <br>
+                <h3><label for="password" class='badge badge-info'>Password: </label> </h3>
+                <input type="password" class='form-control' name='password' id='password' placeholder="Put your password here..."> <br>
+                <h3><label for="passwordconfirm" class='badge badge-info'>Confirm password: </label> </h3>
+                <input type="password" class='form-control' name='passwordConfirm' id='passwordConfirm' placeholder="Repeat your password here..."> <br>
+                <button class="btn btn-success" onclick='return checkPassword()'>Register user</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include ('../../partials/footer.ejs') %>
+
+<script>
+    function checkPassword(){
+        var password = document.getElementById("password").value;
+        var passwordConfirm = document.getElementById("passwordConfirm").value;
+        if(password != passwordConfirm){
+            alert('The password does not match!');
+            return false;
+        }
+    }
+</script>

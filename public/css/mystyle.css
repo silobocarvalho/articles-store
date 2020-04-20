@@ -1,0 +1,20 @@
+body{
+    background-color: #ffffff;
+}
+
+.question-date{
+    font-size: xx-small;
+    margin: 0 0 0 0;
+}
+
+#footer{
+    text-align: center;
+}
+
+.nav-item-text{
+    color: white;
+}
+
+.inline{
+    display: inline;
+}

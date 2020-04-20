@@ -1,0 +1,46 @@
+<%- include ('../../partials/header.ejs') %>
+<%- include ('../../partials/navbar-admin.ejs') %>
+
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h3>Edit Article</h3>
+        </div>
+        <div class="card-body">
+            <form action="/admin/articles/edit" method="POST">
+                <input type="hidden" name='id' value='<%= article.id %>'>
+                <h3><label for="title" class='badge badge-info'>Title: </label> </h3>
+                <input type="text" class='form-control' name='title' placeholder="Put your NEW title here..."
+                    value='<%= article.title %>'> <br>
+                <h3><label for="category" class='badge badge-info'>Category: </label> </h3>
+                <select name="categoryid" class='form-control'>
+                    <% categories.forEach((category) => { %>
+                    <% if(category.id == article.category.id){ %>
+                    <option value="<%= category.id %>" selected> <%= category.title %> </option>
+                    <% }else{ %>
+                    <option value="<%= category.id %>"> <%= category.title %> </option>
+                    <% }}) %>
+                </select>
+                <br>
+                <h3><label for="content" class='badge badge-info'>Content: </label> </h3>
+                <textarea name="content" id="content"
+                    placeholder="Put your article content here..."><%= article.content %> </textarea>
+                <br>
+                <button class="btn btn-success">Edit article</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include ('../../partials/footer.ejs') %>
+
+<script src='/tinyMCE/tinymce.min.js'></script>
+<script>
+    tinymce.init({
+        selector: '#content',
+        plugins: [
+            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+        ]
+    })
+</script>
